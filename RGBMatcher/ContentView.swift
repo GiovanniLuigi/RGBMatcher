@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ColorCircle(rgb: $game.target)
+            ColorCircle(rgb: game.target)
             if !showScore {
                 Text("R: ??? G: ??? B: ???")
                     .padding()
@@ -22,7 +22,7 @@ struct ContentView: View {
                 Text(game.target.intString())
                     .padding()
             }
-            ColorCircle(rgb: $guess)
+            ColorCircle(rgb: guess)
             Text(guess.intString())
                 .padding()
             ColorSlider(value: $guess.red, trackColor: .red)
@@ -69,7 +69,7 @@ struct ColorSlider: View {
 }
 
 struct ColorCircle: View {
-    @Binding var rgb: RGB
+    var rgb: RGB
     
     var body: some View {
         Circle()
